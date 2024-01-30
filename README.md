@@ -1,18 +1,30 @@
-# EDA-for-Ames-Iowa-Housing-Dataset
-Advanced Regression Techniques EDA for Ames-Iowa Housing Dataset
+## What do I need to do to use **ERIC.AI**?
+ERIC.AI uses a combination of documentation and historical question and Test case  pairs to generate TOL from natural language.
 
-In layman’s terms, what is the management/research question of interest, and why would anyone care?
+### Step 1: Train **Eric.AI**
+- Give **ERIC.AI** sample TOL
+- **ERIC.AI** will try to guess the question
+- Verify the question is correct
+```mermaid
+flowchart LR
+    Generate[E.generate_question]
+    Question[Question]
+    Verify{Is the question correct?}
+    TOL --> Generate
+    Generate --> Question
+    Question --> Verify
+    Verify -- Yes --> Store[E.store_sql]
+    Verify -- No --> Update[Update the Question]
+    Update --> Store
+    
+```
 
-This question is significant because it helps individuals and organizations involved in the real estate market make informed decisions and understand the value of a property.
-
-Here's why different stakeholders should care about this question:
-
-Homeowners: Homeowners are interested in understanding how specific features and factors can impact the value of their homes. This knowledge allows them to make informed decisions about renovations, pricing, and future investments in order to maximize the value of their properties.
-
-Real Estate Agents: Real estate agents can provide better service to their clients by having knowledge about the factors that influence house prices. This allows them to give accurate pricing recommendations and insights, helping their clients make informed decisions about buying or selling a home.
-
-Property Developers: Property developers need to understand the relationship between housing features and sale prices in order to make strategic decisions about property design, amenities, and target markets. This knowledge helps them create successful and desirable developments that meet market demand.
-
-Policy Makers: Policy makers can use housing market data to analyze the demand for specific types of housing and identify areas that require revitalization or infrastructure development. By formulating effective policies based on this information, they can address housing needs and ensure a well-functioning housing market.
-
-In short we can say that understanding the factors that influence housing prices is crucial for various stakeholders as it enables them to make better decisions related to buying, selling, developing, and regulating housing.
+### Step 2: Ask **ERIC.AI** a Question
+```mermaid
+flowchart LR
+    Question[Question]
+    Generate[E.generate_TOL]
+    TOL[TOL]
+    Question --> Generate
+    Generate --> TOL    
+```
